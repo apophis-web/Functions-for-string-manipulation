@@ -1,0 +1,95 @@
+int StrCmp(const char* s1, const char* s2) 
+{
+	bool status = true;
+	int num = STRLEN((char*)s1);
+	int num2 = STRLEN((char*)s2);
+	num++;
+	num2++;
+	for (int i = 0; i < num; i++)
+	{
+		if (s1[i] != s2[i])
+		{
+			status = false;
+			break;
+		}
+	}
+	if (status == true)
+	{
+		return 0;
+	}
+	else if (num < num2)
+	{
+		return -1;
+	}
+	else
+	{
+		return 2;
+	}
+}
+
+
+template <class T>
+T** StrTok(T* s1, const T s2, int& size)
+	{
+		int len2d = 0;
+		int i = 0;
+		int j = 0;
+		int k = 0;
+		int l = 0;
+
+		int* arr = new int[20];
+		for (i = 0; i < 20; i++)
+			arr[i] = 0;
+
+		A = new int[i];
+		for (l = 0; l < i; l++)
+			A[l] = 0;
+
+		i = 0;
+		l = 0;
+		while (s1[i] != '\0')
+		{
+			if (s1[i] == s2)
+			{
+				arr[j] = k;
+				A[j] = k;
+				j++;
+				len2d++;
+				k = -1;
+
+			}
+			i++;
+			k++;
+		}
+
+		char** s3 = new char* [len2d];
+		for (int i = 0; arr[i] != 0; i++)
+		{
+			s3[i] = new char[double(arr[i]) + 1];
+			s3[i][arr[i]] = '\0';
+		}
+
+		for (int i = 0; i < len2d; i++)
+		{
+			for (int j = 0; j < arr[i]; j++)
+			{
+				s3[i][j] = '\0';
+			}
+		}
+		k = 0;
+		l = 0;
+		for (int i = 0; i < len2d; i++)
+		{
+			for (int j = 0; j < arr[l]; j++)
+			{
+				s3[i][j] = s1[k];
+				//cout << s3[i][j];
+				k++;
+			}
+			l++;
+			k += 1;
+		}
+		l = 0;
+		size = len2d;
+		return s3;
+	}
